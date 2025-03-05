@@ -1,6 +1,7 @@
 import React from "react";
-import Box from "./Box";
+import WhackABox from "./WhackABox";
+
 function App() {
-  return <Box />;
+  return <WhackABox />;
 }
 export default App;
