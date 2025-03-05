@@ -23,7 +23,7 @@ const Ggame = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-purple-500 to-blue-500 p-6">
+    <div className="flex flex-col items-center justify-center h-screen w-screen bg-gradient-to-r from-purple-500 to-blue-500 p-6">
       <h1 className="text-3xl font-bold text-white mb-4">Ggame - Guess the Box</h1>
       {gameOver ? (
         winner ? (
