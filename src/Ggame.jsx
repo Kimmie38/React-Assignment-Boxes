@@ -13,7 +13,7 @@ const Ggame = () => {
     };
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
-  }, );
+  }, []);
 
   const handleBoxClick = (index) => {
     if (index === targetBox) {
@@ -31,7 +31,7 @@ const Ggame = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen w-screen bg-gradient-to-r from-purple-500 to-blue-500 p-6">
+    <div className="flex flex-col items-center justify-center min-h-screen w-full bg-gradient-to-r from-purple-500 to-blue-500 p-6">
       <h1 className="text-3xl font-bold text-white mb-4">Ggame - Guess the Box</h1>
       {gameOver ? (
         winner ? (
@@ -41,15 +41,15 @@ const Ggame = () => {
         )
       ) : (
         <div
-          className={`grid gap-4 p-4 bg-white rounded-lg shadow-lg ${gridSize === 6 ? "grid-cols-3" : "grid-cols-4"}`}
+          className={`grid gap-4 p-4 bg-white rounded-lg shadow-lg ${gridSize === 6 ? "grid-cols-2 sm:grid-cols-3" : "grid-cols-3 sm:grid-cols-4"}`}
         >
           {Array.from({ length: gridSize }).map((_, index) => (
             <button
               key={index}
               onClick={() => handleBoxClick(index)}
-              className="w-24 h-24 bg-gray-300 text-black font-bold rounded-lg flex items-center justify-center hover:bg-gray-400"
+              className="w-24 h-24 sm:w-32 sm:h-32 bg-gray-300 text-black font-bold rounded-lg flex items-center justify-center hover:bg-gray-400"
             >
-              
+              ?
             </button>
           ))}
         </div>
