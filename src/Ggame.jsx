@@ -12,7 +12,7 @@ const Ggame = () => {
       restartGame();
     };
     window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, );
 
   const handleBoxClick = (index) => {
