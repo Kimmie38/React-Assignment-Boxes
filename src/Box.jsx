@@ -5,7 +5,7 @@ export default function ColorBoxes() {
 
   const handleClick = (index) => {
     setActiveIndex(index);
-    setTimeout(() => setActiveIndex(null), );
+    setTimeout(() => setActiveIndex(null),);
   };
 
   return (
