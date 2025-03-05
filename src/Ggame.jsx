@@ -8,7 +8,7 @@ const Ggame = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      setGridSize(window.innerWidth < 640 ? 6 : 12);
+      setGridSize(window.innerWidth < 640 ? 9 : 12);
       restartGame();
     };
     window.addEventListener("resize", handleResize);
