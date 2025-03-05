@@ -1,6 +1,6 @@
 import React from "react";
-import Box from "./Box";
+import Ggame from "./Ggame";
 function App() {
-  return <Box />;
+  return <Ggame />;
 }
 export default App;
