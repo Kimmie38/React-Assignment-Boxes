@@ -1,11 +1,19 @@
-import React, { useState } from "react";
-
-const GRID_SIZE = 12;
+import React, { useState, useEffect } from "react";
 
 const Ggame = () => {
-  const [targetBox, setTargetBox] = useState(Math.floor(Math.random() * GRID_SIZE));
+  const [gridSize, setGridSize] = useState(window.innerWidth < 640 ? 6 : 12);
+  const [targetBox, setTargetBox] = useState(Math.floor(Math.random() * gridSize));
   const [gameOver, setGameOver] = useState(false);
   const [winner, setWinner] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setGridSize(window.innerWidth < 640 ? 6 : 12);
+      restartGame();
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const handleBoxClick = (index) => {
     if (index === targetBox) {
@@ -17,7 +25,7 @@ const Ggame = () => {
   };
 
   const restartGame = () => {
-    setTargetBox(Math.floor(Math.random() * GRID_SIZE));
+    setTargetBox(Math.floor(Math.random() * gridSize));
     setGameOver(false);
     setWinner(false);
   };
@@ -32,8 +40,10 @@ const Ggame = () => {
           <h2 className="text-5xl font-bold text-red-600">You're a Loser!</h2>
         )
       ) : (
-        <div className="grid grid-cols-4 gap-4 p-4 bg-white rounded-lg shadow-lg">
-          {Array.from({ length: GRID_SIZE }).map((_, index) => (
+        <div
+          className={`grid gap-4 p-4 bg-white rounded-lg shadow-lg ${gridSize === 6 ? "grid-cols-3" : "grid-cols-4"}`}
+        >
+          {Array.from({ length: gridSize }).map((_, index) => (
             <button
               key={index}
               onClick={() => handleBoxClick(index)}
