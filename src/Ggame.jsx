@@ -49,7 +49,7 @@ const Ggame = () => {
               onClick={() => handleBoxClick(index)}
               className="w-24 h-24 bg-gray-300 text-black font-bold rounded-lg flex items-center justify-center hover:bg-gray-400"
             >
-              ?
+              
             </button>
           ))}
         </div>
