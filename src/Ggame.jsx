@@ -13,7 +13,7 @@ const Ggame = () => {
     };
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  }, );
 
   const handleBoxClick = (index) => {
     if (index === targetBox) {
@@ -49,7 +49,7 @@ const Ggame = () => {
               onClick={() => handleBoxClick(index)}
               className="w-24 h-24 sm:w-32 sm:h-32 bg-gray-300 text-black font-bold rounded-lg flex items-center justify-center hover:bg-gray-400"
             >
-              ?
+              
             </button>
           ))}
         </div>
